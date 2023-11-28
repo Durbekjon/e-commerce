@@ -16,6 +16,7 @@ model User {
   password String
   role Role @default(USER)
   token String?
+  orders Orders[]
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 }
@@ -31,6 +32,7 @@ model Products {
   description String?
   price Int
   count Int
+  order Orders[]
   category Category @relation(fields: [categoryId], references: [id])
   categoryId Int
   created_at DateTime @default(now())
@@ -40,6 +42,17 @@ model Category {
   id Int @id @default(autoincrement())
   name String
   products Products[]
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+model Orders {
+  id Int @id @default(autoincrement())
+  user User @relation(fields: [userId], references: [id])
+  userId Int
+  product Products @relation(fields: [productId], references: [id])
+  productId Int
+  totalPrice Int
+  productCount Int
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 }
