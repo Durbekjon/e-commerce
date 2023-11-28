@@ -30,6 +30,7 @@ model Products {
   name String
   description String?
   price Int
+  count Int
   category Category @relation(fields: [categoryId], references: [id])
   categoryId Int
   created_at DateTime @default(now())

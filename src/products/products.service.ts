@@ -38,6 +38,7 @@ export class ProductsService {
           },
         },
         price: dto.price,
+        count: dto.count,
       },
     });
   }
@@ -62,6 +63,7 @@ export class ProductsService {
         name: dto.name,
         description: dto.description,
         price: dto.price,
+        count: dto.count,
         category: {
           connect: {
             id: dto.category,

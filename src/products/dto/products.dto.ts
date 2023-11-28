@@ -22,7 +22,11 @@ export class ProductDto {
   })
   @IsNumber()
   price: number;
-
+  @ApiProperty({
+    description: "Example Product count",
+    example: 20,
+  })
+  count: number;
   @ApiProperty({
     description: "Example Product category",
     example: 2,
